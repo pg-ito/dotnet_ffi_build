@@ -1,0 +1,7 @@
+version: '3'
+services:
+  dotnet_ffi_builder:
+    build: .
+    volumes:
+      - ./src:/src
+    tty: true
