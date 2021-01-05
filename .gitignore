@@ -1,0 +1,3 @@
+src/dotnet_ffi/
+src/*.tar.gz
+src/*.zip

@@ -10,7 +10,8 @@ cd -
 fi
 
 
-docker-compose build
-docker-compose up -d 
-docker-compose exec -T -w /src/dotnet_ffi dotnet_ffi_builder "/bin/bash ~/builder.sh"
+
+docker-compose up --build -d 
+echo 'type "./br.sh" in the container to build start in the php container.'
+# docker-compose exec -w /src/dotnet_ffi dotnet_ffi_builder "/var/tmp/builder.sh"
 

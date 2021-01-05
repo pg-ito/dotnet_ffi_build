@@ -1,7 +1,19 @@
 version: '3'
+
 services:
-  dotnet_ffi_builder:
-    build: .
+  nginx:
+    image: nginx
     volumes:
-      - ./src:/src
-    tty: true
+      - ./src:/var/www
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "18080:80"
+    depends_on:
+      - php_fpm
+    links:
+      - php_fpm
+  php_fpm:
+    build: php73
+    volumes:
+      - ./src:/var/www
